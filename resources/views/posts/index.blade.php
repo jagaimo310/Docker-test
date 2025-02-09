@@ -22,6 +22,10 @@
     <div class='paginate'>
         {{ $posts->links() }}
     </div>
+
+    <div class='test'>
+        <a class='Javascript' href='/JavaScript'>Javascript</a>
+    </div>
 </body>
 
 </html>

@@ -41,4 +41,9 @@ class PostController extends Controller
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
+
+    public function JavaScript()
+    {
+        return view('javascript.02-01');
+    }
 }

@@ -1,0 +1,18 @@
+/* containerクラスのdiv全体を装飾する */
+.container {
+    /* 中央揃え */
+    text-align: center;
+}
+
+/* ボタンを装飾する */
+.button {
+    /* 文字の色　*/
+    color: white;
+
+    /* 背景色 */
+    background-color: black;
+
+    /* ボタンの大きさ */
+    /* はじめの値で上下を、2つ目の値で左右の空間の広さを決定する */
+    padding: 15px 30px;
+}

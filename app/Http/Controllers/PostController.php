@@ -57,6 +57,12 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
 
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/');
+    }
+
     public function JavaScript()
     {
         return view('javascript.02-01');

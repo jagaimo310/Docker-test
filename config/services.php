@@ -35,4 +35,8 @@ return [
         'token' => env('TERATAIL_ACCESS_TOKEN')
     ],
 
+    'rakuten' => [
+        'api' => env('RAKUTEN_API')
+    ],
+
 ];

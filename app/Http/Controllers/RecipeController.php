@@ -10,7 +10,8 @@ class RecipeController extends Controller
     //
     public function recipe()
     {
-        return view('recipes.recipe');
+        $results = 0;
+        return view('recipes.recipe')->with(['results' => $results]);;
     }
 
     public function recipeCategory(Request $request)

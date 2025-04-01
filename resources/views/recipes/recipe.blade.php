@@ -12,7 +12,7 @@
         <input type="submit" value="検索">
     </form>
 
-    @if($results)
+    @if(!$results == 0)
     @foreach($results as $result)
     <li>
         <img src="{{$result['foodImageUrl']}}" alt="{{$result['recipeTitle']}}画像">

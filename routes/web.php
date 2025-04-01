@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MapController;
 
 
 
@@ -21,6 +22,8 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function (
     Route::delete('/posts/{post}', 'delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
 });
+
+Route::get('/autocomplete',  [MapController::class, 'autocomplete'])->name('autocomplete');
 Route::get('/recipe',  [RecipeController::class, 'recipe'])->name('recipe');
 Route::post("/recipeCategory",  [RecipeController::class, 'recipeCategory'])->name('recipeCategory');
 Route::get('/categories/{category}', [CategoryController::class, 'index'])->middleware("auth");

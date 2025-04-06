@@ -35,25 +35,40 @@
                 }));
             d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
         })({
-            key: "{{ YOUR_API_KEY }}",
+            key: "{{ config('services.googlemap.api') }}",
             v: "weekly",
         });
     </script>
     <script>
-        function initMap() {
-            //オートコンプリート機能
+        async function initMap() {
+            //placesライブラリをロード
+            const {
+                Autocomplete
+            } = await google.maps.importLibrary("places");
             let place = document.getElementById("place"); //オートコンプリートをつける、inputタグを指定
-            Autocomplete = new google.maps.places.Autocomplete(place);
-            Autocomplete.addListener('place_changed', function() {
-                const placeInfo = Autocomplete.getPlace();
+            //検索制限を記述
+            const options = {
+                //観光地
+                types: defaultBounds,
+                componentRestrictions: {
+                    country: "ja"
+                },
+                fields: ["geometry", "name"],
+            };
+            //インスタンス作成時に制限条件を加える
+            let autocomplete = new Autocomplete(place, options); //オートコンプリート機能を持ったインスタンス作成
+            autocomplete.addListener('place_changed', function() {
+                const placeInfo = autocomplete.getPlace();
                 if (placeInfo.geometry) {
                     //今回は指定したinputタグに場所の名前を入れる
-                    document.getElementById('placeRealName').value = placeInfo.name;
+                    console.log(placeInfo);
+                    document.getElementById('place').value = placeInfo.name;
                 } else {
                     alert("場所が見つかりませんでした。");
                 }
             });
         }
+        initMap();
     </script>
 </body>
 

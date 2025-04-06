@@ -67,4 +67,9 @@ class PostController extends Controller
     {
         return view('javascript.02-01');
     }
+
+    public function map()
+    {
+        return view('Maps.autocomplete');
+    }
 }

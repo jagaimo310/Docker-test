@@ -21,6 +21,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function (
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
+    Route::get('/map', 'map');
 });
 
 Route::get('/autocomplete',  [MapController::class, 'autocomplete'])->name('autocomplete');

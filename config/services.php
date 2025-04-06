@@ -39,4 +39,8 @@ return [
         'api' => env('RAKUTEN_API')
     ],
 
+    'googlemap' => [
+        'api' => env('GOOGLEMAP_API')
+    ],
+
 ];

@@ -25,6 +25,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function (
 });
 
 Route::get('/autocomplete',  [MapController::class, 'autocomplete'])->name('autocomplete');
+Route::get('/route',  [MapController::class, 'route']);
 Route::get('/recipe',  [RecipeController::class, 'recipe'])->name('recipe');
 Route::get('/nutrient',  [RecipeController::class, 'nutrient'])->name('nutrient');
 Route::post('/nutrientSerch',  [RecipeController::class, 'nutrientSerch'])->name('nutrientSerch');

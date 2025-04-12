@@ -9,6 +9,11 @@ class MapController extends Controller
     //
     public function autocomplete()
     {
-        return view('Maps.autocomlete');
+        return view('Maps.autocomplete');
+    }
+
+    public function route()
+    {
+        return view('Maps.route');
     }
 }

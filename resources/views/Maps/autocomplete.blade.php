@@ -48,15 +48,13 @@
             let place = document.getElementById("place"); //オートコンプリートをつける、inputタグを指定
             //検索制限を記述
             const options = {
-                //観光地
-                types: defaultBounds,
                 componentRestrictions: {
-                    country: "ja"
+                    country: "jp"
                 },
                 fields: ["geometry", "name"],
             };
             //インスタンス作成時に制限条件を加える
-            let autocomplete = new Autocomplete(place, options); //オートコンプリート機能を持ったインスタンス作成
+            let autocomplete = new Autocomplete(place); //オートコンプリート機能を持ったインスタンス作成
             autocomplete.addListener('place_changed', function() {
                 const placeInfo = autocomplete.getPlace();
                 if (placeInfo.geometry) {
